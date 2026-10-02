@@ -19,10 +19,16 @@ nfpms:
       - deb
 
 snapcrafts:
-  - name_template: '{{ .ProjectName }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
+  - name: animux-like
+    name_template: '{{ .ProjectName }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
     summary: A terminal virtual pet CLI.
     description: A terminal virtual pet CLI application.
-    publish: true 
+    publish: true
+    grade: stable
+    confinement: classic
+    apps:
+      animux:
+        command: animux
 
 brews:
   - repository:
