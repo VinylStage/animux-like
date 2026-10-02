@@ -3,33 +3,26 @@
 **Animux** (Animux-like) is a terminal-based virtual pet (Tamagotchi-style) that lives natively in your Linux/Unix environment. 
 Built with Unix philosophy in mind, it operates as a background daemon and lets you interact with your pet using standard CLI commands or a real-time TUI observer.
 
-## Features
-
-- **Multiple Species:** Adopt a Tux-like Penguin, a Cat, or a Dog.
-- **Real-time Lifecycle:** Your pet gets hungry, bored, and makes messes over time. Don't neglect them!
-- **XDG Compliant:** Uses standard Linux directories (`$XDG_STATE_HOME`, `$XDG_DATA_HOME`, `$XDG_RUNTIME_DIR`).
-- **Interactive Observer:** Use `animux show` to watch your pet continuously in a colorful UI (powered by Bubble Tea & Lipgloss).
-- **Daemon Architecture:** A lightweight background process manages time decay and handles CLI requests via Unix Domain Sockets.
-
 ## Installation
 
-### Homebrew (macOS / Linux)
+You can install Animux quickly using standard package managers!
+
+### Ubuntu / Debian (`apt`)
 ```bash
-brew install VinylStage/tap/animux-like
+# Add the repository and install
+echo "deb [trusted=yes] https://apt.fury.io/vinylstage/ /" | sudo tee /etc/apt/sources.list.d/animux.list
+sudo apt update
+sudo apt install animux
 ```
 
-### Debian/Ubuntu (.deb)
-Download the latest `.deb` package from the [Releases](https://github.com/VinylStage/animux-like/releases) page and run:
+### Snap Store (`snap`)
 ```bash
-sudo dpkg -i animux_*.deb
+sudo snap install animux
 ```
 
-### Manual Build
+### macOS / Linux (`brew`)
 ```bash
-git clone https://github.com/VinylStage/animux-like.git
-cd animux-like
-go build -o animux
-sudo mv animux /usr/local/bin/
+brew install VinylStage/tap/animux
 ```
 
 ## Quick Start
@@ -38,7 +31,6 @@ sudo mv animux /usr/local/bin/
    ```bash
    animux daemon &
    ```
-   *(Logs are continuously written to `~/.local/state/animux/animux.log`)*
 
 2. **Adopt your first pet:**
    ```bash
