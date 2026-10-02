@@ -20,6 +20,10 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: stable
+          
+      - name: Install Snapcraft
+        run: sudo snap install snapcraft --classic
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v5
         with:
@@ -27,4 +31,20 @@ jobs:
           version: latest
           args: release --clean
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_TOKEN }}
+
+      - name: Upload DEB to Gemfury (APT)
+        env:
+          FURY_TOKEN: ${{ secrets.FURY_TOKEN }}
+        run: |
+          if [ -n "$FURY_TOKEN" ]; then
+            for pkg in dist/*.deb; do
+              if [ -f "$pkg" ]; then
+                echo "Uploading $pkg to Gemfury..."
+                curl -F package=@"$pkg" https://${FURY_TOKEN}@push.fury.io/vinylstage/
+              fi
+            done
+          else
+            echo "FURY_TOKEN secret is not set, skipping APT upload."
+          fi
