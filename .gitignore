@@ -1,0 +1,28 @@
+# 바이너리 빌드 결과물
+animux
+dist/
+
+# Go 관련
+*.exe
+*.test
+*.out
+vendor/
+
+# 운영체제 관련
+.DS_Store
+Thumbs.db
+
+# 에디터 관련
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Snap 빌드 결과물
+*.snap
+parts/
+prime/
+stage/
+
+# 로그
+*.log

@@ -1,0 +1,58 @@
+name: 🐛 버그 리포트
+description: 버그를 신고해 주세요
+title: "[버그] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        버그를 신고해 주셔서 감사합니다! 아래 양식을 최대한 자세히 작성해 주세요.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 버그 설명
+      description: 어떤 문제가 발생했나요?
+      placeholder: 무슨 일이 일어났는지 명확하게 설명해 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 단계
+      description: 버그를 재현하는 방법을 단계별로 설명해 주세요.
+      placeholder: |
+        1. '...' 명령어 실행
+        2. '...' 입력
+        3. 오류 발생
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 예상 동작
+      description: 어떻게 동작해야 했나요?
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 환경 정보
+      description: |
+        OS, animux 버전, Go 버전을 알려주세요.
+        예시:
+        - OS: Ubuntu 22.04
+        - animux 버전: v0.1.0
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 로그 (선택)
+      description: "`~/.local/state/animux/animux.log` 내용을 붙여넣어 주세요."
+      render: shell
