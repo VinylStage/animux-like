@@ -22,7 +22,8 @@ sudo snap install animux
 
 ### macOS / Linux (`brew`)
 ```bash
-brew install VinylStage/tap/animux
+brew tap VinylStage/animux-like https://github.com/VinylStage/animux-like
+brew install animux
 ```
 
 ## Quick Start
