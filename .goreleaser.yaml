@@ -33,5 +33,10 @@ snapcrafts:
 brews:
   - repository:
       owner: VinylStage
-      name: homebrew-animux-like
+      name: animux-like
+    directory: Formula
+    homepage: "https://github.com/VinylStage/animux-like"
     description: "A terminal virtual pet CLI."
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
