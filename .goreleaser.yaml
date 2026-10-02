@@ -1,0 +1,31 @@
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin    
+    goarch:
+      - amd64     
+      - arm64     
+    binary: animux
+
+nfpms:
+  - file_name_template: '{{ .ProjectName }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
+    homepage: https://github.com/VinylStage/animux-like
+    description: A terminal virtual pet CLI.
+    maintainer: Your Name <your.email@example.com>
+    license: MIT
+    formats:
+      - deb
+
+snapcrafts:
+  - name_template: '{{ .ProjectName }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
+    summary: A terminal virtual pet CLI.
+    description: A terminal virtual pet CLI application.
+    publish: false 
+
+brews:
+  - repository:
+      owner: VinylStage
+      name: homebrew-animux-like
+    description: "A terminal virtual pet CLI."
