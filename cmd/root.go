@@ -27,4 +27,5 @@ func init() {
 	rootCmd.AddCommand(cleanCmd)
 	rootCmd.AddCommand(statusCmd)
 	rootCmd.AddCommand(daemonCmd)
+	rootCmd.AddCommand(showCmd)
 }
